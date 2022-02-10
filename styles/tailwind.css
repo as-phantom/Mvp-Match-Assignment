@@ -15,7 +15,7 @@
   h2,
   h3,
   h4 {
-    @apply font-semibold;
+    @apply font-bold;
   }
 }
 

@@ -8,7 +8,7 @@ const NoReports: React.FC = () => {
       <div className="mx-auto max-w-[470px] text-center">
         <h3>No reports</h3>
 
-        <p className="text-mvp-blue-100 pb-12 font-semibold">
+        <p className="text-mvp-blue-100 pb-12 font-bold">
           Currently you have no data for the reports to be generated. Once you start generating traffic through the Balance application the
           reports will be shown.
         </p>
