@@ -16,6 +16,7 @@ function App({ Component, pageProps }: AppProps) {
         <title>MVP Match</title>
         <meta name="description" content="MVP Match assignment" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       </Head>
 
       {currentUser ? (
