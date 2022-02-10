@@ -27,6 +27,9 @@ module.exports = {
           purple: {
             50: 'var(--mvp-purple-50)',
           },
+          gray: {
+            50: 'var(--mvp-gray-50)',
+          },
         },
       },
     },
