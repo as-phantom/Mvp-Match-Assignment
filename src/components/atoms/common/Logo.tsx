@@ -6,7 +6,7 @@ import React from 'react';
 const Logo: React.FC = () => {
   return (
     <Link href="/">
-      <a>
+      <a className="flex">
         <Image src={LogoSVG} alt="Logo icon" priority />
       </a>
     </Link>

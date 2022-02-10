@@ -2,7 +2,7 @@ import Image from 'next/image';
 import MenuSVG from 'public/svg/menu.svg';
 import React from 'react';
 import Logo from 'src/components/atoms/common/Logo';
-import Profile from 'src/components/atoms/common/Profile';
+import Profile from 'src/components/molecules/common/Profile';
 import { IUser } from 'src/interfaces/user.interface';
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 const Nav: React.FC<Props> = ({ currentUser }) => {
   return (
     <header className="border-mvp-gray-50 flex h-[80px] items-center border-b bg-white pr-[100px]">
-      <div className="w-[100px] text-center">
+      <div className="flex w-[100px] items-center justify-center">
         <Logo />
       </div>
 

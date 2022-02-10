@@ -4,7 +4,7 @@ import React from 'react';
 
 const NoReports: React.FC = () => {
   return (
-    <section className="flex  items-center">
+    <div className="flex-1 flex items-center">
       <div className="mx-auto max-w-[470px] text-center">
         <h3>No reports</h3>
 
@@ -15,7 +15,7 @@ const NoReports: React.FC = () => {
 
         <Image src={NoReportsSVG} alt="No reports icon" priority />
       </div>
-    </section>
+    </div>
   );
 };
 

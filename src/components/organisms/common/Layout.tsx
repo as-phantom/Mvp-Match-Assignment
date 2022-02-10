@@ -8,7 +8,7 @@ const Layout: React.FC = ({ children }) => {
       <SideNav />
 
       <article className="flex flex-1 flex-col">
-        <section className="flex-1">{children}</section>
+        <section className="flex flex-1 flex-col pr-[100px]">{children}</section>
 
         <Footer />
       </article>
