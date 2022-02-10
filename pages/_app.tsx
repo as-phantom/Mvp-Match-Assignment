@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Layout from 'src/components/atoms/common/Layout';
 import Providers from 'src/components/atoms/common/Providers';
+import Footer from 'src/components/organisms/common/Footer';
 import '../styles/index.css';
 
 function App({ Component, pageProps }: AppProps) {
@@ -16,6 +17,8 @@ function App({ Component, pageProps }: AppProps) {
       <Layout>
         <Component {...pageProps} />
       </Layout>
+
+      <Footer />
     </Providers>
   );
 }
