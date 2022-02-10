@@ -5,10 +5,10 @@ import React, { useCallback, useState } from 'react';
 import DatepickerButton from 'src/components/molecules/common/DatepickerButton';
 import DropdownButton from 'src/components/molecules/common/DropdownButton';
 import { IDropdownItem } from 'src/interfaces/dropdownItem.interface';
-import { Filters } from 'src/interfaces/filters.interface';
+import { IFilters } from 'src/interfaces/filters.interface';
 
 interface Props {
-  onExportFilters: (filters: Filters) => void;
+  onExportFilters: (filters: IFilters) => void;
 }
 
 const Filters: React.FC<Props> = ({ onExportFilters }) => {
@@ -44,7 +44,7 @@ const Filters: React.FC<Props> = ({ onExportFilters }) => {
   }, []);
 
   const onGenerateReportHandler = useCallback(() => {
-    const filters: Filters = {
+    const filters: IFilters = {
       from: format(from, 'yyyy-MM-dd'),
       to: format(to, 'yyyy-MM-dd'),
       ...(project ? { projectId: project.projectId } : {}),
