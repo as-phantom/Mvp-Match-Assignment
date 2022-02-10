@@ -1,2 +1,24 @@
 :root {
+  /* Green */
+  --mvp-green-50: #1bc5bd;
+
+  /* Blue */
+  --mvp-blue-50: #f1fafe;
+  --mvp-blue-100: #7e8299;
+  --mvp-blue-200: #6497b1;
+  --mvp-blue-300: #005b96;
+  --mvp-blue-400: #011f4b;
+
+  /* Yellow */
+  --mvp-yellow-50: #ffc107;
+  --mvp-yellow-100: #f6ca65;
+
+  /* Red */
+  --mvp-red-50: #f24e1e;
+
+  /* Purple */
+  --mvp-purple-50: #a259ff;
+
+  /* Grey */
+  --mvp-grey-50: #f3f6f9;
 }
