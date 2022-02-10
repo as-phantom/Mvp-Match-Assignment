@@ -1,8 +1,12 @@
 import React from 'react';
 
-const Loader: React.FC = () => {
+interface Props {
+  flex?: boolean;
+}
+
+const Loader: React.FC<Props> = ({ flex }) => {
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className={`flex ${flex ? 'flex-1' : 'h-screen'} items-center justify-center`}>
       <svg
         role="status"
         className="fill-mvp-blue-300 h-8 w-8 animate-spin text-gray-200"

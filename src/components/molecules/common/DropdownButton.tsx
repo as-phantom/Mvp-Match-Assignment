@@ -42,13 +42,15 @@ const DropdownButton: React.FC<Props> = ({
       <Image src={TriangleSVG} alt="Triangle icon" priority />
 
       <DropdownMenu>
-        <DropdownItem
-          dropdownItem={{
-            [valueProperty]: buttonText,
-          }}
-          valueProperty={valueProperty}
-          onDropdownItemSelected={onDropdownItemSelectedHandler}
-        />
+        {dropdownItems && (
+          <DropdownItem
+            dropdownItem={{
+              [valueProperty]: buttonText,
+            }}
+            valueProperty={valueProperty}
+            onDropdownItemSelected={onDropdownItemSelectedHandler}
+          />
+        )}
 
         {dropdownItems ? (
           dropdownItems.map((dropdownItem) => (
@@ -60,7 +62,9 @@ const DropdownButton: React.FC<Props> = ({
             />
           ))
         ) : (
-          <Loader />
+          <div className="py-4">
+            <Loader flex />
+          </div>
         )}
       </DropdownMenu>
     </button>
