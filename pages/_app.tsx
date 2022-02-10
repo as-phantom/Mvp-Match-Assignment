@@ -1,11 +1,15 @@
+import { useCurrentUser } from 'hooks/useCurrentUser';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import Layout from 'src/components/atoms/common/Layout';
-import Providers from 'src/components/atoms/common/Providers';
-import Footer from 'src/components/organisms/common/Footer';
+import Loader from 'src/components/atoms/common/Loader';
+import Layout from 'src/components/organisms/common/Layout';
+import Nav from 'src/components/organisms/common/Nav';
+import Providers from 'src/components/organisms/common/Providers';
 import '../styles/index.css';
 
 function App({ Component, pageProps }: AppProps) {
+  const currentUser = useCurrentUser();
+
   return (
     <Providers>
       <Head>
@@ -14,11 +18,17 @@ function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      {currentUser ? (
+        <>
+          <Nav currentUser={currentUser} />
 
-      <Footer />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </>
+      ) : (
+        <Loader />
+      )}
     </Providers>
   );
 }
