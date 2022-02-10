@@ -4,7 +4,7 @@ import React from 'react';
 
 const NoReports: React.FC = () => {
   return (
-    <div className="flex-1 flex items-center">
+    <div className="flex flex-1 items-center">
       <div className="mx-auto max-w-[470px] text-center">
         <h3>No reports</h3>
 
