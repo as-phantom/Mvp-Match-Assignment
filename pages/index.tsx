@@ -1,4 +1,6 @@
 import type { NextPage } from 'next';
+import Image from 'next/image';
+import NoReportsSVG from 'public/svg/no-reports.svg';
 
 const Home: NextPage = () => {
   return (
@@ -17,6 +19,8 @@ const Home: NextPage = () => {
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit fugit, illum iure sit a laudantium accusamus delectus ut
         quidem dicta. Doloribus distinctio consequuntur, praesentium repellat voluptate laboriosam! Ullam, consequatur. Est.
       </p>
+
+      <Image src={NoReportsSVG} alt="No reports icon" priority />
     </div>
   );
 };
