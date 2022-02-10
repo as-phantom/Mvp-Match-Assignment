@@ -4,6 +4,37 @@
 
 @layer base {
   html {
-    @apply font-roboto;
+    @apply font-roboto text-mvp-blue-400;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply rounded-0 py-2 px-4 text-sm leading-4;
+  }
+
+  .btn-0 {
+    @apply bg-mvp-green-50 text-white;
+  }
+
+  .btn-1 {
+    @apply bg-mvp-blue-300 text-white;
+  }
+}
+
+@layer utilities {
+  .rounded-0 {
+    @apply rounded-[5px];
+  }
+
+  .rounded-1 {
+    @apply rounded-[10px];
   }
 }
