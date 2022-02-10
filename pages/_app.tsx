@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import Layout from 'src/components/atoms/Layout';
-import Providers from 'src/components/atoms/Providers';
+import Layout from 'src/components/atoms/common/Layout';
+import Providers from 'src/components/atoms/common/Providers';
 import '../styles/index.css';
 
 function App({ Component, pageProps }: AppProps) {
