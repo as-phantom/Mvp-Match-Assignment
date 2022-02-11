@@ -1,6 +1,6 @@
 import { pieChartOption } from 'data/HomePage/pieChart';
 import ReactECharts from 'echarts-for-react';
-import React from 'react';
+import React, { useMemo } from 'react';
 import Loader from 'src/components/atoms/common/Loader';
 import ReportContainer from 'src/components/molecules/HomePage/ReportContainer';
 import ReportFooter from 'src/components/molecules/HomePage/ReportFooter';
@@ -31,6 +31,8 @@ interface Props {
 }
 
 const Report: React.FC<Props> = ({ reports, projects, gateways, currentProject, currentGateway }) => {
+  const total = useMemo(() => calculateTotal(reports, currentProject, currentGateway), [reports, currentProject, currentGateway]);
+
   return (
     <>
       {!projects || !gateways ? (
@@ -51,12 +53,9 @@ const Report: React.FC<Props> = ({ reports, projects, gateways, currentProject, 
                 </div>
 
                 <div className="max-w-lg flex-1">
-                  <ReactECharts option={pieChartOption(reports, currentProject, currentGateway)} />
+                  <ReactECharts option={pieChartOption(reports, projects, gateways, currentProject, currentGateway)} />
 
-                  <ReportFooter
-                    title={currentProject && !currentGateway ? 'Project Total' : 'Gateway Total'}
-                    total={calculateTotal(reports, currentProject, currentGateway)}
-                  />
+                  <ReportFooter title={currentProject && !currentGateway ? 'Project Total' : 'Gateway Total'} total={total} />
                 </div>
               </div>
             </>
@@ -71,7 +70,7 @@ const Report: React.FC<Props> = ({ reports, projects, gateways, currentProject, 
                   currentGateway={currentGateway}
                 />
 
-                <ReportFooter title="Total" total={calculateTotal(reports, currentProject, currentGateway)} />
+                <ReportFooter title="Total" total={total} />
               </div>
             </>
           )}
