@@ -17,6 +17,10 @@
   h4 {
     @apply font-bold;
   }
+
+  * {
+    @apply outline-none;
+  }
 }
 
 @layer components {

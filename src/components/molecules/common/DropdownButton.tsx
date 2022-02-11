@@ -12,7 +12,7 @@ interface Props {
   keyProperty: string;
   valueProperty: string;
   selectedDropdownItem?: IDropdownItem;
-  onDropdownItemSelected: (dropdownItem: IDropdownItem) => void;
+  onDropdownItemSelected: (dropdownItem: IDropdownItem | undefined) => void;
 }
 
 const DropdownButton: React.FC<Props> = ({
@@ -26,7 +26,7 @@ const DropdownButton: React.FC<Props> = ({
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const onDropdownItemSelectedHandler = useCallback(
-    (dropdownItem: IDropdownItem) => {
+    (dropdownItem: IDropdownItem | undefined) => {
       buttonRef.current?.blur();
       onDropdownItemSelected(dropdownItem);
     },
@@ -48,7 +48,7 @@ const DropdownButton: React.FC<Props> = ({
               [valueProperty]: buttonText,
             }}
             valueProperty={valueProperty}
-            onDropdownItemSelected={onDropdownItemSelectedHandler}
+            onDropdownItemSelected={() => onDropdownItemSelectedHandler(undefined)}
           />
         )}
 

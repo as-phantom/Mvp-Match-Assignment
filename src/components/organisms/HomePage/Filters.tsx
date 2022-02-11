@@ -1,28 +1,27 @@
 import { endOfMonth, format, startOfMonth } from 'date-fns';
-import useGateways from 'hooks/useGateways';
-import useProjects from 'hooks/useProjects';
 import React, { useCallback, useState } from 'react';
 import DatepickerButton from 'src/components/molecules/common/DatepickerButton';
 import DropdownButton from 'src/components/molecules/common/DropdownButton';
 import { IDropdownItem } from 'src/interfaces/dropdownItem.interface';
 import { IFilters } from 'src/interfaces/filters.interface';
+import { IGateway } from 'src/interfaces/gateway.interface';
+import { IProject } from 'src/interfaces/project.interface';
 
 interface Props {
+  projects: IProject[] | null;
+  gateways: IGateway[] | null;
   onExportFilters: (filters: IFilters) => void;
 }
 
-const Filters: React.FC<Props> = ({ onExportFilters }) => {
-  const projects = useProjects();
-  const gateways = useGateways();
-
-  const [project, setProject] = useState<IDropdownItem | undefined>();
-  const onProjectSelectedHandler = useCallback((dropdownItem: IDropdownItem) => {
-    setProject(dropdownItem);
+const Filters: React.FC<Props> = ({ projects, gateways, onExportFilters }) => {
+  const [project, setProject] = useState<IProject | undefined>();
+  const onProjectSelectedHandler = useCallback((dropdownItem: IDropdownItem | undefined) => {
+    setProject(dropdownItem as IProject);
   }, []);
 
-  const [gateway, setGateway] = useState<IDropdownItem | undefined>();
-  const onGatewaySelectedHandler = useCallback((dropdownItem: IDropdownItem) => {
-    setGateway(dropdownItem);
+  const [gateway, setGateway] = useState<IGateway | undefined>();
+  const onGatewaySelectedHandler = useCallback((dropdownItem: IDropdownItem | undefined) => {
+    setGateway(dropdownItem as IGateway);
   }, []);
 
   const [from, setFrom] = useState<Date>(startOfMonth(new Date()));
@@ -47,8 +46,8 @@ const Filters: React.FC<Props> = ({ onExportFilters }) => {
     const filters: IFilters = {
       from: format(from, 'yyyy-MM-dd'),
       to: format(to, 'yyyy-MM-dd'),
-      ...(project ? { projectId: project.projectId } : {}),
-      ...(gateway ? { gatewayId: gateway.gatewayId } : {}),
+      project,
+      gateway,
     };
 
     onExportFilters(filters);
