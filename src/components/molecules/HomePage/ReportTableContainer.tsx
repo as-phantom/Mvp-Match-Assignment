@@ -8,7 +8,7 @@ interface Props {
 
 const ReportTableContainer: React.FC<Props> = ({ columns, data }) => {
   return (
-    <div className="hidden px-4 pt-2 group-focus-within:flex">
+    <div className="hidden px-4 pt-2 group-focus-within:flex only:flex only:px-0 only:pt-0">
       <ReportTable columns={columns} data={data}></ReportTable>
     </div>
   );
