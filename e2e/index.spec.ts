@@ -19,7 +19,7 @@ test.describe('App', () => {
   test('filters should exist', async ({ page }) => {
     const filtersLocator = page.locator('div[data-playwright-id="filters"]');
 
-    expect(filtersLocator).toBeTruthy();
+    await expect(filtersLocator).toBeVisible();
   });
 
   test('filters should contain the projects, gateways, from date, to date and generate report buttons', async ({ page }) => {
