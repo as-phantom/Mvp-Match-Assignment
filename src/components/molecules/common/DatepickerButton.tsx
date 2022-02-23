@@ -5,6 +5,7 @@ import CalendarSVG from 'public/svg/calendar.svg';
 import React, { useRef } from 'react';
 
 interface Props {
+  playwrightId: string;
   buttonText: string;
   date: Date;
   minDate?: Date;
@@ -12,12 +13,13 @@ interface Props {
   onDateChange: (date: Date | null) => void;
 }
 
-const DatepickerButton: React.FC<Props> = ({ buttonText, date, minDate, maxDate, onDateChange }) => {
+const DatepickerButton: React.FC<Props> = ({ playwrightId, buttonText, date, minDate, maxDate, onDateChange }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   return (
     <LocalizationProvider dateAdapter={DateAdapter}>
       <DesktopDatePicker
+        views={['year', 'month', 'day']}
         value={date}
         minDate={minDate}
         maxDate={maxDate}
@@ -32,6 +34,7 @@ const DatepickerButton: React.FC<Props> = ({ buttonText, date, minDate, maxDate,
               <button
                 type="button"
                 className="btn btn-0"
+                data-playwright-id={playwrightId}
                 ref={inputRef}
                 onClick={() => {
                   const endAdornmentButton: HTMLElement = ref.current?.firstElementChild?.firstElementChild as HTMLElement;

@@ -7,6 +7,10 @@ import Nav from 'src/components/organisms/common/Nav';
 import Providers from 'src/components/organisms/common/Providers';
 import '../styles/index.css';
 
+if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
+  require('../mocks');
+}
+
 function App({ Component, pageProps }: AppProps) {
   const currentUser = useCurrentUser();
 

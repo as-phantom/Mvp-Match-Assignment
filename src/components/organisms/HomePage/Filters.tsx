@@ -54,8 +54,9 @@ const Filters: React.FC<Props> = ({ projects, gateways, onExportFilters }) => {
   }, [from, to, project, gateway, onExportFilters]);
 
   return (
-    <div className="flex gap-6">
+    <div data-playwright-id="filters" className="flex gap-6">
       <DropdownButton
+        playwrightId="projectsBtn"
         buttonText="All projects"
         dropdownItems={projects}
         keyProperty="projectId"
@@ -65,6 +66,7 @@ const Filters: React.FC<Props> = ({ projects, gateways, onExportFilters }) => {
       />
 
       <DropdownButton
+        playwrightId="gatewaysBtn"
         buttonText="All gateways"
         dropdownItems={gateways}
         keyProperty="gatewayId"
@@ -73,11 +75,11 @@ const Filters: React.FC<Props> = ({ projects, gateways, onExportFilters }) => {
         onDropdownItemSelected={onGatewaySelectedHandler}
       />
 
-      <DatepickerButton buttonText="From date" date={from} maxDate={to} onDateChange={onFromDateChangeHandler} />
+      <DatepickerButton playwrightId="fromDateBtn" buttonText="From date" date={from} maxDate={to} onDateChange={onFromDateChangeHandler} />
 
-      <DatepickerButton buttonText="To date" date={to} minDate={from} onDateChange={onToDateChangeHandler} />
+      <DatepickerButton playwrightId="toDateBtn" buttonText="To date" date={to} minDate={from} onDateChange={onToDateChangeHandler} />
 
-      <button type="button" className="btn btn-1" onClick={onGenerateReportHandler}>
+      <button type="button" data-playwright-id="generateReportBtn" className="btn btn-1" onClick={onGenerateReportHandler}>
         Generate report
       </button>
     </div>

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import MenuSVG from 'public/svg/menu.svg';
 import React from 'react';
-import Logo from 'src/components/atoms/common/Logo';
+import { Logo } from 'src/components/atoms/common/Logo';
 import Profile from 'src/components/molecules/common/Profile';
 import { IUser } from 'src/interfaces/user.interface';
 

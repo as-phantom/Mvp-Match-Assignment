@@ -7,6 +7,7 @@ import Loader from 'src/components/atoms/common/Loader';
 import { IDropdownItem } from 'src/interfaces/dropdownItem.interface';
 
 interface Props {
+  playwrightId: string;
   buttonText: string;
   dropdownItems: IDropdownItem[] | null;
   keyProperty: string;
@@ -16,6 +17,7 @@ interface Props {
 }
 
 const DropdownButton: React.FC<Props> = ({
+  playwrightId,
   buttonText,
   dropdownItems,
   keyProperty,
@@ -37,6 +39,7 @@ const DropdownButton: React.FC<Props> = ({
     <button
       ref={buttonRef}
       className="btn btn-0 group relative flex items-center transition-all focus:rounded-br-none focus:rounded-bl-none"
+      data-playwright-id={playwrightId}
     >
       <span className="pr-4">{selectedDropdownItem ? selectedDropdownItem[valueProperty] : buttonText}</span>
       <Image src={TriangleSVG} alt="Triangle icon" priority />
